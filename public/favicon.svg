@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="DrMcGi’s SaaS Atelier icon">
+  <defs>
+    <linearGradient id="fGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffdf7c" />
+      <stop offset="45%" stop-color="#fff5c8" />
+      <stop offset="100%" stop-color="#f8c64d" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="#020409" />
+  <circle cx="128" cy="128" r="100" fill="url(#fGold)" />
+  <circle cx="128" cy="128" r="60" fill="#0b1020" />
+  <circle cx="128" cy="128" r="28" fill="rgba(255,255,255,0.22)" />
+  <circle cx="128" cy="128" r="12" fill="rgba(255,255,255,0.35)" />
+  <path d="M92 96 L70 80" stroke="#9be7ff" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+  <path d="M164 96 L188 78" stroke="#f7d87b" stroke-width="6" stroke-linecap="round" opacity="0.85" />
+</svg>

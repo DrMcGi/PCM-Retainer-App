@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 250" role="img" aria-label="DrMcGi’s SaaS Atelier logo">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffdf7c" />
+      <stop offset="38%" stop-color="#fff5c8" />
+      <stop offset="70%" stop-color="#f8c64d" />
+      <stop offset="100%" stop-color="#ffdf7c" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7d87b" stop-opacity="0.98" />
+      <stop offset="55%" stop-color="#9be7ff" stop-opacity="0.72" />
+      <stop offset="100%" stop-color="#f7d87b" stop-opacity="0" />
+    </linearGradient>
+
+
+    <filter id="soft" x="-40%" y="-40%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" result="BLUR" />
+      <feFlood flood-color="#ffffff" flood-opacity="0.18" />
+      <feComposite in2="BLUR" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="specular" x="-40%" y="-40%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="BLUR" />
+      <feSpecularLighting in="BLUR" surfaceScale="6" specularConstant="0.35" specularExponent="18" lighting-color="#fff">
+        <fePointLight x="200" y="-100" z="300" />
+      </feSpecularLighting>
+      <feComposite in2="BLUR" operator="in" />
+    </filter>
+
+    <mask id="textMask">
+      <rect width="100%" height="100%" fill="white" />
+      <text x="50%" y="46%" text-anchor="middle" font-family="Clash Display, Playfair Display, serif" font-weight="800" font-size="64" letter-spacing="0.04em" fill="black">
+        DrMcGi’s
+      </text>
+      <text x="50%" y="76%" text-anchor="middle" font-family="Clash Display, Playfair Display, serif" font-weight="800" font-size="62" letter-spacing="0.04em" fill="black">
+        SaaS Atelier
+      </text>
+    </mask>
+  </defs>
+
+  <rect width="100%" height="100%" fill="transparent" />
+
+  <!-- Signature network lines (ref: live wallpaper bots) -->
+  <g opacity="0.55">
+    <path d="M140 200 C240 178 340 212 440 192" stroke="url(#accentGrad)" stroke-width="2" fill="none" />
+    <path d="M240 182 C340 162 440 210 540 192" stroke="url(#accentGrad)" stroke-width="2" fill="none" />
+    <circle cx="140" cy="200" r="3.2" fill="#f7d87b" />
+    <circle cx="440" cy="192" r="3.2" fill="#9be7ff" />
+    <circle cx="540" cy="192" r="3.2" fill="#f7d87b" />
+    <circle cx="340" cy="162" r="3.2" fill="#9be7ff" />
+  </g>
+
+  <!-- Logo mark: gold bokeh + bot pupil -->
+  <g>
+    <circle cx="190" cy="120" r="68" fill="url(#goldGrad)" opacity="0.92" />
+    <circle cx="190" cy="120" r="42" fill="#0b1020" opacity="0.95" />
+    <circle cx="190" cy="120" r="22" fill="rgba(255,255,255,0.16)" />
+    <circle cx="190" cy="120" r="10" fill="rgba(255,255,255,0.24)" />
+    <path d="M178 100 L150 80" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round" />
+    <path d="M202 100 L230 78" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Brand wordmark with bold gold demand -->
+  <g>
+    <text x="52%" y="48%" text-anchor="middle" font-family="Clash Display, Playfair Display, serif" font-weight="900" font-size="70" letter-spacing="0.04em" fill="url(#goldGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="0.8">
+      DrMcGi’s
+    </text>
+    <text x="52%" y="76%" text-anchor="middle" font-family="Clash Display, Playfair Display, serif" font-weight="900" font-size="72" letter-spacing="0.04em" fill="url(#goldGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="0.8">
+      SaaS Atelier
+    </text>
+  </g>
+
+  <!-- Corporate info -->
+  <text x="52%" y="92%" text-anchor="middle" font-family="Neue Haas Grotesk, Inter, sans-serif" font-size="14" letter-spacing="0.12em" fill="#ffffff" fill-opacity="0.72">
+    (Pty) Ltd • 2026/093277/07
+  </text>
+
+  <!-- Finishing accent strokes -->
+  <g opacity="0.34">
+    <path d="M580 212 C640 198 720 220 820 200" stroke="url(#accentGrad)" stroke-width="2" fill="none" />
+    <path d="M590 198 C670 188 740 205 820 190" stroke="rgba(247,216,123,0.22)" stroke-width="1.3" fill="none" />
+  </g>
+</svg>
