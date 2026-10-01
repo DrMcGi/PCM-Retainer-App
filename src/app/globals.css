@@ -546,6 +546,19 @@ h1 {
   border-left-color: var(--green);
 }
 
+.download-button {
+  display: block;
+  margin-top: 12px;
+  padding: 9px 13px;
+  color: var(--ink);
+  background: var(--lime);
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .site-footer {
   max-width: 1160px;
   min-height: 70px;

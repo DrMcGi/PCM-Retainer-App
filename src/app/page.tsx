@@ -19,6 +19,8 @@ export default function Home() {
   const [isSigned, setIsSigned] = useState(false);
   const [resultMessage, setResultMessage] = useState("");
   const [emailStatus, setEmailStatus] = useState<"sent" | "partial" | "failed" | null>(null);
+  const [signedPdfBase64, setSignedPdfBase64] = useState("");
+  const [signedContractNumber, setSignedContractNumber] = useState("");
   const requestId = useRef("");
   const selectedPlan = RETAINER_PLANS.find((plan) => plan.id === selectedPlanId) ?? RETAINER_PLANS[0];
 
@@ -55,6 +57,8 @@ export default function Home() {
 
       setEmailStatus(payload.emailStatus ?? "failed");
       setIsSigned(true);
+      setSignedPdfBase64(payload.pdfBase64 ?? "");
+      setSignedContractNumber(payload.contractNumber ?? "signed-retainer");
       const deliveryNote = payload.emailMessage ? ` Delivery detail: ${payload.emailMessage}` : "";
       setResultMessage(payload.emailStatus === "sent"
         ? `Agreement ${payload.contractNumber} was signed. PDF copies were emailed to the representative and supplier.`
@@ -62,16 +66,6 @@ export default function Home() {
           ? `Agreement ${payload.contractNumber} was recorded, but only one email copy was delivered. Download the PDF below and contact the supplier.${deliveryNote}`
           : `Agreement ${payload.contractNumber} was recorded, but the email could not be delivered. Download the PDF below and contact the supplier.${deliveryNote}`);
 
-      if (payload.pdfBase64) {
-        const binary = window.atob(payload.pdfBase64);
-        const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-        const pdfUrl = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
-        const link = document.createElement("a");
-        link.href = pdfUrl;
-        link.download = `${payload.contractNumber || "signed-retainer"}.pdf`;
-        link.click();
-        URL.revokeObjectURL(pdfUrl);
-      }
     } catch (error) {
       setResultMessage(error instanceof Error ? error.message : "The agreement could not be signed.");
     } finally {
@@ -242,6 +236,24 @@ export default function Home() {
           {resultMessage && (
             <div className={`result-message ${emailStatus === "sent" ? "is-success" : ""}`} role="status">
               {resultMessage}
+              {signedPdfBase64 && (
+                <button
+                  className="download-button"
+                  type="button"
+                  onClick={() => {
+                    const binary = window.atob(signedPdfBase64);
+                    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+                    const pdfUrl = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+                    const link = document.createElement("a");
+                    link.href = pdfUrl;
+                    link.download = `${signedContractNumber}.pdf`;
+                    link.click();
+                    URL.revokeObjectURL(pdfUrl);
+                  }}
+                >
+                  Download signed PDF
+                </button>
+              )}
             </div>
           )}
         </section>

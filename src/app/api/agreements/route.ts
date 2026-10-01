@@ -167,7 +167,7 @@ export async function POST(request: NextRequest) {
             contractNumber: existing.contract_number,
             emailStatus: existingStatus,
             emailMessage: existing.email_error,
-            ...(existingStatus === "sent" ? {} : { pdfBase64: Buffer.from(existing.pdf_bytes).toString("base64") }),
+            pdfBase64: Buffer.from(existing.pdf_bytes).toString("base64"),
           }, { status: 200 });
         }
       } catch {
@@ -204,6 +204,6 @@ export async function POST(request: NextRequest) {
     contractNumber,
     emailStatus: delivery.status,
     emailMessage: delivery.error,
-    ...(delivery.status === "sent" ? {} : { pdfBase64: Buffer.from(pdfBytes).toString("base64") }),
+    pdfBase64: Buffer.from(pdfBytes).toString("base64"),
   }, { status: 201 });
 }
