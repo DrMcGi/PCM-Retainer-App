@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Copy `.env.example` to `.env.local` and set a PostgreSQL `DATABASE_URL`, the supplier mailbox, and Resend credentials. The sender address must be verified with Resend.
+Copy `.env.example` to `.env.local` and set a PostgreSQL `DATABASE_URL` and Resend credentials. The sender address must be verified with Resend. The app always sends the supplier copy to `giftk.rantho@gmail.com`; the representative email comes from the signed form.
 
 Initialize the dedicated database once using `retainer-agreements.sql`. Do not point this app at the PCM Management Tool database unless intentionally sharing infrastructure; the agreement records contain signer names, email addresses, signatures, IP metadata, and signed PDFs.
 
@@ -17,7 +17,7 @@ Open `http://localhost:3000` to select a package and review its agreement. The s
 
 ## Deployment
 
-Deploy this directory as its own Next.js project. Configure `DATABASE_URL`, `SUPPLIER_EMAIL`, `RESEND_API_KEY`, and `RESEND_FROM_EMAIL` in the host's secret settings. The database must be reachable by the serverless runtime and the Resend sender domain must be verified before relying on email delivery.
+Deploy this directory as its own Next.js project. Configure `DATABASE_URL`, `RESEND_API_KEY`, and `RESEND_FROM_EMAIL` in the host's secret settings. The database must be reachable by the serverless runtime and the Resend sender domain must be verified before relying on email delivery.
 
 The typed representative email is a delivery destination, not identity verification. The app records the submitted signature, consent, timestamp, IP address, and user-agent; have the agreement reviewed for legal suitability before public use. No production host, database, or email account has been connected yet.
 
